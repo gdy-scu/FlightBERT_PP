@@ -4,8 +4,7 @@
 
 This repository provides source codes of the proposed flight trajectory prediction framework, called FlightBERT++, 
 and example samples for the paper <a href="https://ojs.aaai.org/index.php/AAAI/article/view/27763">FlightBERT++: A Non-autoregressive Multi-Horizon Flight Trajectory Prediction Framework</a>. 
-This work is proposed to i) forecast multi-
-horizon flight trajectories directly in a non-autoregressive way, and ii) improved the limitation of the binary encoding (BE) 
+This work is proposed to i) forecast multi-horizon flight trajectories directly in a non-autoregressive way, and ii) improve the limitation of the binary encoding (BE) 
 representation in our previous work <a href="https://ieeexplore.ieee.org/document/9945661">FlightBERT</a>. 
 
 <p  align="middle"><img src="pics/FlightBERT++.jpg"  width="95%"/></p>
@@ -54,14 +53,14 @@ git clone https://github.com/gdy-scu/FlightBERT_PP.git
 
 ### Create proper software and hardware environment
 
-You are recommended to create a virtual environment with the package requirements mentioned above, and conduct the 
+You are recommended to create a virtual environment with the package requirements mentioned above and conduct the 
 training and test on the suggested system configurations.
 
 ## Training and Testing
 
-The training and testing are both packaged into the script of `run.py` for the FlightBERT++ framework with the different arguments in `config.json`. 
+The training and testing are both packaged into the script of `run.py` for the FlightBERT++ framework with different arguments in `config.json`. 
 
-The main arguments in `config.json` are descirbed bellow:
+The main arguments in `config.json` are described below:
 
 `learning_rate`: Float. The learning rate of the Adam optimizer. `default=0.0001`
 
@@ -69,13 +68,13 @@ The main arguments in `config.json` are descirbed bellow:
 
 `batch_size`: Integer. The number of samples in a single training batch. `default=2048`
 
-`epoch`: Integer. The maximum epoch for training process. `default=20`
+`epoch`: Integer. The maximum epoch for the training process. `default=20`
 
-`train_data`: String. The path for training set. `default='./data/train/'`
+`train_data`: String. The path for the training set. `default='./data/train/'`
 
-`dev_data`: String. The path for validation set. `default='./data/dev/'`
+`dev_data`: String. The path for the validation set. `default='./data/dev/'`
 
-`test_data`: String. The path for test set. `default='./data/test/'`
+`test_data`: String. The path for the test set. `default='./data/test/'`
 
 `saving_dir`: Integer. The save path of the models and log file during the training/testing process. `default='./check_points/'`
 
@@ -87,7 +86,7 @@ The main arguments in `config.json` are descirbed bellow:
 
 `is_training`: Bool. Used to specify the running mode, true for training and false for testing. `default=true`
 
-`model_path`: String. The checkpoint model path for traning or testing. `default=''`
+`model_path`: String. The checkpoint model path for the traning or testing. `default=''`
 
 
 To train the FlightBERT++ framework, use the following command.
@@ -106,7 +105,7 @@ python run.py --config ./config.json
 
 # Dataset
 
-In this repository, the example samples `/data/example_data.txt` are provided for facilitate quick start. 
+In this repository, the example samples `/data/example_data.txt` are provided to facilitate quick start. 
 The guidance about the example data can be found in `/data/README`. 
 
 
