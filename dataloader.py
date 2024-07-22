@@ -150,7 +150,7 @@ class DataGenerator(da.Dataset):
                 raw_seq_spdy.append(int(spdy))
                 raw_seq_spdz.append(int(spdz))
 
-            for step in range(0, self.configs.inp_seq_len + self.configs.horizon):
+            for step in range(1, self.configs.inp_seq_len + self.configs.horizon):
                 t_lon.append(self.convert_tar((raw_seq_lon[step], raw_seq_lon[step - 1]), 'lon'))
                 t_lat.append(self.convert_tar((raw_seq_lat[step], raw_seq_lat[step - 1]), 'lat'))
                 t_alt.append(self.convert_tar((raw_seq_alt[step], raw_seq_alt[step - 1]), 'alt'))
@@ -165,19 +165,19 @@ class DataGenerator(da.Dataset):
             batch_spdy.append(seq_spdy[:self.configs.inp_seq_len])
             batch_spdz.append(seq_spdz[:self.configs.inp_seq_len])
 
-            batch_t_lon.append(t_lon[self.configs.inp_seq_len:])
-            batch_t_lat.append(t_lat[self.configs.inp_seq_len:])
-            batch_t_alt.append(t_alt[self.configs.inp_seq_len:])
-            batch_t_spdx.append(t_spdx[self.configs.inp_seq_len:])
-            batch_t_spdy.append(t_spdy[self.configs.inp_seq_len:])
-            batch_t_spdz.append(t_spdz[self.configs.inp_seq_len:])
+            batch_t_lon.append(t_lon[self.configs.inp_seq_len - 1:])
+            batch_t_lat.append(t_lat[self.configs.inp_seq_len - 1:])
+            batch_t_alt.append(t_alt[self.configs.inp_seq_len - 1:])
+            batch_t_spdx.append(t_spdx[self.configs.inp_seq_len - 1:])
+            batch_t_spdy.append(t_spdy[self.configs.inp_seq_len - 1:])
+            batch_t_spdz.append(t_spdz[self.configs.inp_seq_len - 1:])
 
-            batch_dec_lon.append(t_lon[:self.configs.inp_seq_len])
-            batch_dec_lat.append(t_lat[:self.configs.inp_seq_len])
-            batch_dec_alt.append(t_alt[:self.configs.inp_seq_len])
-            batch_dec_spdx.append(t_spdx[:self.configs.inp_seq_len])
-            batch_dec_spdy.append(t_spdy[:self.configs.inp_seq_len])
-            batch_dec_spdz.append(t_spdz[:self.configs.inp_seq_len])
+            batch_dec_lon.append(t_lon[:self.configs.inp_seq_len - 1])
+            batch_dec_lat.append(t_lat[:self.configs.inp_seq_len - 1])
+            batch_dec_alt.append(t_alt[:self.configs.inp_seq_len - 1])
+            batch_dec_spdx.append(t_spdx[:self.configs.inp_seq_len - 1])
+            batch_dec_spdy.append(t_spdy[:self.configs.inp_seq_len - 1])
+            batch_dec_spdz.append(t_spdz[:self.configs.inp_seq_len - 1])
 
             raw_batch_lon.append(raw_seq_lon)
             raw_batch_lat.append(raw_seq_lat)
